@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Button } from '../ui/Button';
 import { ProfileUpdateModal } from './ProfileUpdateModal';
 import { User } from '@/types/auth';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface ProfileCardProps {
 	user: User;
@@ -46,23 +47,23 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ user }) => {
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					{/* Profile Image and Basic Info */}
 					<div className="md:col-span-2 flex items-center space-x-4 mb-4">
-					<div className="w-20 h-20 bg-brand rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 relative">
-						{user.profileImage ? (
-							<Image
-								src={user.profileImage}
-								alt={`${user.firstName} ${user.lastName}`}
-								fill
-								className="object-cover"
-								unoptimized
-								onError={(e) => {
-									const target =
-										e.target as HTMLImageElement;
-									target.style.display = 'none';
-									target.nextElementSibling!.classList.remove(
-										'hidden',
-									);
-								}}
-							/>
+						<div className="w-20 h-20 bg-brand rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 relative">
+							{user.profileImage ? (
+								<Image
+									src={toCdnUrl(user.profileImage)}
+									alt={`${user.firstName} ${user.lastName}`}
+									fill
+									className="object-cover"
+									unoptimized
+									onError={(e) => {
+										const target =
+											e.target as HTMLImageElement;
+										target.style.display = 'none';
+										target.nextElementSibling!.classList.remove(
+											'hidden',
+										);
+									}}
+								/>
 							) : null}
 							<span
 								className={`text-white font-semibold text-xl ${user.profileImage ? 'hidden' : ''}`}

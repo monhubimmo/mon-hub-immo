@@ -8,6 +8,7 @@ import type { ChatMessage, ChatUser } from '@/types/chat';
 import { ArrowLeft, Eye } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 // Import chat UI components
 import {
@@ -83,12 +84,14 @@ const AdminMessageBubble = ({
 				{message.image && (
 					<div className="mt-2">
 						<Image
-							src={message.image}
+							src={toCdnUrl(message.image)}
 							alt="Image"
 							width={300}
 							height={200}
 							className="rounded cursor-pointer hover:opacity-90 transition-opacity"
-							onClick={() => onImageClick?.(message.image!)}
+							onClick={() =>
+								onImageClick?.(toCdnUrl(message.image!))
+							}
 							unoptimized
 						/>
 					</div>
@@ -105,12 +108,16 @@ const AdminMessageBubble = ({
 								return (
 									<Image
 										key={idx}
-										src={att.thumbnailUrl || att.url}
+										src={toCdnUrl(
+											att.thumbnailUrl || att.url,
+										)}
 										alt={att.name}
 										width={300}
 										height={200}
 										className="rounded cursor-pointer hover:opacity-90 transition-opacity"
-										onClick={() => onImageClick?.(att.url)}
+										onClick={() =>
+											onImageClick?.(toCdnUrl(att.url))
+										}
 										unoptimized
 									/>
 								);
@@ -119,7 +126,7 @@ const AdminMessageBubble = ({
 							return (
 								<a
 									key={idx}
-									href={att.url}
+									href={toCdnUrl(att.url)}
 									target="_blank"
 									rel="noopener noreferrer"
 									className={`flex items-center gap-2 p-2 rounded-lg transition-colors ${

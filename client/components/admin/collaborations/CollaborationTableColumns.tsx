@@ -11,6 +11,7 @@ import {
 	formatDate,
 } from '@/lib/utils/adminUtils';
 import type { AdminCollaboration } from '@/types/admin';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 export const getCollaborationTableColumns = () => [
 	{
@@ -46,7 +47,7 @@ export const getCollaborationTableColumns = () => [
 					<div className="flex items-center gap-2 min-w-0">
 						{agentImage ? (
 							<img
-								src={agentImage}
+								src={toCdnUrl(agentImage)}
 								alt={agentName}
 								className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover flex-shrink-0 border border-gray-100"
 							/>
@@ -73,7 +74,7 @@ export const getCollaborationTableColumns = () => [
 					<div className="flex items-center gap-2 ml-0 sm:ml-1 min-w-0">
 						{apporteurImage ? (
 							<img
-								src={apporteurImage}
+								src={toCdnUrl(apporteurImage)}
 								alt={apporteurName}
 								className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover flex-shrink-0 border border-gray-100"
 							/>
@@ -118,7 +119,7 @@ export const getCollaborationTableColumns = () => [
 				<div className="flex items-center gap-2 min-w-0 text-xs sm:text-sm">
 					{propertyImage ? (
 						<img
-							src={propertyImage}
+							src={toCdnUrl(propertyImage)}
 							alt={propertyTitle}
 							className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg object-cover flex-shrink-0 shadow-sm border border-gray-100"
 						/>

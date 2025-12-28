@@ -9,6 +9,7 @@ import type { SearchAd } from '@/types/searchAd';
 import { Features } from '@/lib/constants';
 import { logger } from '@/lib/utils/logger';
 import { getDisplayAddress } from '@/lib/utils/addressPrivacy';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 type PropertyDetails = Partial<Property> & { id?: string };
 
@@ -57,7 +58,7 @@ export const CollaborationPostInfo: React.FC<CollaborationPostInfoProps> = ({
 				'[CollaborationPostInfo] Using property image:',
 				image,
 			);
-			return image;
+			return toCdnUrl(image);
 		}
 
 		// Fallback to collaboration.postId if it's populated
@@ -72,7 +73,7 @@ export const CollaborationPostInfo: React.FC<CollaborationPostInfoProps> = ({
 					'[CollaborationPostInfo] Using collaboration.postId image:',
 					image,
 				);
-				return image;
+				return toCdnUrl(image);
 			}
 		}
 

@@ -9,6 +9,7 @@ import { ProfileAvatar, RichTextDisplay } from '../ui';
 import { User } from '@/types/auth';
 import { storage, STORAGE_KEYS } from '@/lib/utils/storageManager';
 import { SubscriptionManager } from './SubscriptionManager';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface AgentProfileCardProps {
 	user: User;
@@ -584,20 +585,20 @@ export const AgentProfileCard: React.FC<AgentProfileCardProps> = ({ user }) => {
 										</span>
 									</div>
 									<a
-										href={
+										href={toCdnUrl(
 											user.professionalInfo.identityCard
-												.url
-										}
+												.url,
+										)}
 										target="_blank"
 										rel="noopener noreferrer"
 										className="group block w-full max-w-xs sm:max-w-sm mx-auto sm:mx-0"
 									>
 										<div className="relative aspect-[3/2] rounded-xl border-2 border-gray-100 hover:border-brand bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden transition-all duration-300 hover:shadow-lg">
 											<Image
-												src={
+												src={toCdnUrl(
 													user.professionalInfo
-														.identityCard.url
-												}
+														.identityCard.url,
+												)}
 												alt="Carte d'identité"
 												fill
 												className="object-contain p-3 sm:p-4"

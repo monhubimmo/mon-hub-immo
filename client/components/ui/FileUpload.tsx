@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Components } from '@/lib/constants';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface FileUploadProps {
 	label: string;
@@ -154,7 +155,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 							</div>
 						) : (
 							<Image
-								src={existingFileUrl}
+								src={toCdnUrl(existingFileUrl)}
 								alt="Fichier téléchargé"
 								fill
 								className="object-cover"

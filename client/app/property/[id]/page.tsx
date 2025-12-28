@@ -19,6 +19,7 @@ import {
 	canViewFullAddress,
 	getDisplayAddress,
 } from '@/lib/utils/addressPrivacy';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 // Import new detail components
 import {
@@ -107,9 +108,10 @@ function PropertyDetailsPageContent() {
 		? [property.mainImage, ...(property.galleryImages ?? [])]
 		: [];
 
-	// Helper function to get image URL
+	// Helper function to get image URL with CDN
 	const getImageSrc = (image: string | { url: string; key: string }) => {
-		return typeof image === 'string' ? image : image.url;
+		const url = typeof image === 'string' ? image : image.url;
+		return toCdnUrl(url);
 	};
 
 	// Convert images for lightbox

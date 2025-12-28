@@ -6,6 +6,7 @@ import { logger } from '@/lib/utils/logger';
 import { useMutation } from '@/hooks/useMutation';
 import { UI } from '@/lib/constants/components';
 import { Camera } from 'lucide-react';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface ProfileImageUploaderProps {
 	currentImageUrl?: string;
@@ -218,7 +219,7 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
 				<div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center border-2 border-brand-300 shadow-md">
 					{currentImageUrl ? (
 						<Image
-							src={currentImageUrl}
+							src={toCdnUrl(currentImageUrl)}
 							alt={UI.IMAGE_ALT_TEXT.profileImage}
 							width={
 								size === 'small'

@@ -3,6 +3,7 @@ import { Input, ReadOnlyField, FileUpload, Checkbox } from '@/components/ui';
 import { Select } from '@/components/ui/CustomSelect';
 import { Features } from '@/lib/constants';
 import { User } from '@/types/auth';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 import {
 	ProfileCompletionFormData,
 	AGENT_TYPE_LABELS,
@@ -388,7 +389,7 @@ const IdentityCardField: React.FC<{
 						Document fourni
 					</span>
 					<a
-						href={user.professionalInfo.identityCard.url}
+						href={toCdnUrl(user.professionalInfo.identityCard.url)}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="ml-auto text-sm text-brand hover:underline"
@@ -410,8 +411,9 @@ const IdentityCardField: React.FC<{
 				onChange={(file) => setIdentityCardFile(file)}
 				value={identityCardFile}
 				existingFileUrl={
-					showExistingIdentityCard
-						? user?.professionalInfo?.identityCard?.url
+					showExistingIdentityCard &&
+					user?.professionalInfo?.identityCard?.url
+						? toCdnUrl(user.professionalInfo.identityCard.url)
 						: undefined
 				}
 				onRemoveExisting={() => setShowExistingIdentityCard(false)}

@@ -9,6 +9,7 @@ import { formatTimeOnly, formatFileSize } from './utils/messageUtils';
 import { getIconForMime } from './ui/FileTypeIcons';
 import ConfirmDialog from '@/components/ui/ConfirmDialog';
 import { logger } from '@/lib/utils/logger';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 // ============================================================================
 // TYPES & INTERFACES
@@ -120,13 +121,15 @@ const MessageImage: React.FC<{
 }> = React.memo(({ imageUrl, altText = 'Message attachment', onClick }) => (
 	<div className="mt-2">
 		<Image
-			src={imageUrl}
+			src={toCdnUrl(imageUrl)}
 			alt={altText}
 			width={600}
 			height={400}
 			className="h-auto w-auto max-w-full rounded cursor-pointer hover:opacity-90 transition-opacity"
 			onClick={() =>
-				onClick ? onClick(imageUrl) : handleImageClick(imageUrl)
+				onClick
+					? onClick(toCdnUrl(imageUrl))
+					: handleImageClick(toCdnUrl(imageUrl))
 			}
 		/>
 	</div>
@@ -225,21 +228,26 @@ const MessageContent: React.FC<MessageContentProps> = React.memo(
 	({ text, image, attachments, onImageClick }) => (
 		<>
 			{text && <MessageText text={text} />}
-			{image && <MessageImage imageUrl={image} onClick={onImageClick} />}
+			{image && (
+				<MessageImage
+					imageUrl={toCdnUrl(image)}
+					onClick={onImageClick}
+				/>
+			)}
 			{attachments && attachments.length > 0 && (
 				<div className="flex flex-col">
 					{attachments.map((att, idx) =>
 						att.type === 'image' ? (
 							<MessageImage
 								key={idx}
-								imageUrl={att.url}
+								imageUrl={toCdnUrl(att.url)}
 								altText={att.name}
 								onClick={onImageClick}
 							/>
 						) : (
 							<DocTile
 								key={idx}
-								url={att.url}
+								url={toCdnUrl(att.url)}
 								name={att.name}
 								mime={att.mime}
 								size={att.size}
@@ -312,9 +320,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = React.memo(
 
 		// Resolve sender user to display name (only for received messages)
 		const senderUser = !isMyMessage
-			? chatStore.getState().users.find(
-				(u) => u._id === message.senderId,
-			  )
+			? chatStore.getState().users.find((u) => u._id === message.senderId)
 			: null;
 		const senderName = senderUser
 			? [senderUser.firstName, senderUser.lastName]
@@ -350,7 +356,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = React.memo(
 					{!isMyMessage && senderName && (
 						<div className="mb-1 text-xs font-semibold text-gray-600">
 							{senderName}
-						</div> 
+						</div>
 					)}
 					{/* Hover-only delete icon for my messages */}
 					{isMyMessage && (

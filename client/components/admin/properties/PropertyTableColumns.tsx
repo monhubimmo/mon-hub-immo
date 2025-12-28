@@ -7,6 +7,7 @@ import {
 	getPropertyTypeLabel,
 	getStatusBadgeVariant,
 } from '@/lib/utils/adminUtils';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 type ColumnDef = {
 	header: string;
@@ -32,7 +33,7 @@ export const getPropertyTableColumns = (): ColumnDef[] => [
 				>
 					{row.mainImage?.url ? (
 						<img
-							src={row.mainImage.url}
+							src={toCdnUrl(row.mainImage.url)}
 							alt={row.title}
 							className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover flex-shrink-0 shadow-sm border border-gray-100"
 						/>

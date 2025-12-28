@@ -3,6 +3,7 @@ import { ImageUploader } from '../ui/ImageUploader';
 import Image from 'next/image';
 import { Components } from '@/lib/constants';
 import { GripVertical } from 'lucide-react';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface ImageFile {
 	file: File;
@@ -107,7 +108,7 @@ export const PropertyImageManager: React.FC<PropertyImageManagerProps> = ({
 						</h4>
 						<div className="relative inline-block w-32 h-32">
 							<Image
-								src={existingMainImage.url}
+								src={toCdnUrl(existingMainImage.url)}
 								alt={
 									Components.UI.IMAGE_ALT_TEXT
 										.mainPropertyImage
@@ -199,7 +200,7 @@ export const PropertyImageManager: React.FC<PropertyImageManagerProps> = ({
 								>
 									<div className="aspect-square w-full rounded-lg overflow-hidden border-2 border-gray-200 relative">
 										<Image
-											src={image.url}
+											src={toCdnUrl(image.url)}
 											alt={`Image galerie ${index + 1}`}
 											fill
 											className="object-cover pointer-events-none"

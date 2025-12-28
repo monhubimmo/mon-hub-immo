@@ -13,6 +13,7 @@ import {
 	isRecentDate,
 } from '@/lib/utils/adminUtils';
 import type { AdminUser } from '@/types/admin';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 export const getUserTableColumns = () => [
 	{
@@ -28,7 +29,7 @@ export const getUserTableColumns = () => [
 			>
 				{row.profileImage ? (
 					<img
-						src={row.profileImage}
+						src={toCdnUrl(row.profileImage)}
 						alt={`${row.firstName || ''} ${row.lastName || ''}`}
 						className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex-shrink-0 object-cover shadow-md"
 					/>

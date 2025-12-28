@@ -78,6 +78,8 @@ app.use(
 					"'self'",
 					'data:',
 					'blob:',
+					'https://cdn.monhubimmo.fr',
+					'https://d2of14y3b5uig5.cloudfront.net',
 					'https://*.amazonaws.com',
 					'https://mon-hub-immo.s3.eu-west-3.amazonaws.com',
 				],

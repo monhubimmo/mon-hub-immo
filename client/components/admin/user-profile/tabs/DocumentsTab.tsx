@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { UserProfile } from '../types';
 import { TabSectionHeader } from '../FormComponents';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface DocumentsTabProps {
 	form: UserProfile;
@@ -38,25 +39,25 @@ export function DocumentsTab({ form }: DocumentsTabProps) {
 							Photo de profil
 						</h4>
 						{form.profileImage ? (
-							<div className="flex items-start gap-5">
+							<div className="flex items-start gap-5\">
 								<a
-									href={form.profileImage}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="group relative"
+									href={toCdnUrl(form.profileImage)}
+									target=\"_blank\"
+									rel=\"noopener noreferrer\"
+									className=\"group relative\"
 								>
-									<div className="w-32 h-32 relative rounded-xl overflow-hidden border-2 border-white shadow-md group-hover:shadow-lg transition-all ring-1 ring-gray-100">
+									<div className=\"w-32 h-32 relative rounded-xl overflow-hidden border-2 border-white shadow-md group-hover:shadow-lg transition-all ring-1 ring-gray-100\">
 										<Image
-											src={form.profileImage}
-											alt="Profile"
+											src={toCdnUrl(form.profileImage)}
+											alt=\"Profile\"
 											fill
-											className="object-cover group-hover:scale-105 transition-transform duration-500"
+											className=\"object-cover group-hover:scale-105 transition-transform duration-500\"
 											unoptimized
 										/>
-										<div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+										<div className=\"absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors\" />
 									</div>
 								</a>
-								<div className="text-sm text-gray-500 mt-2">
+								<div className=\"text-sm text-gray-500 mt-2\">
 									<p>
 										Cliquez sur l&apos;image pour
 										l&apos;agrandir.
@@ -86,7 +87,9 @@ export function DocumentsTab({ form }: DocumentsTabProps) {
 						</h4>
 						{form.professionalInfo?.identityCard?.url ? (
 							<a
-								href={form.professionalInfo.identityCard.url}
+								href={toCdnUrl(
+									form.professionalInfo.identityCard.url,
+								)}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex items-center p-4 bg-white rounded-xl border border-gray-200 hover:border-primary-300 hover:shadow-md transition-all group"

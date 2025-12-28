@@ -3,6 +3,7 @@ import React from 'react';
 import { CollaborationStatusBadge } from './CollaborationStatusBadge';
 import type { Property } from '@/lib/api/propertyApi';
 import type { Collaboration } from '@/types/collaboration';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface CollaborationPostHeaderProps {
 	postImage: string;
@@ -32,7 +33,7 @@ export const CollaborationPostHeader: React.FC<
 					<div className="w-full h-full bg-gray-300 animate-pulse" />
 				) : (
 					<img
-						src={postImage}
+						src={toCdnUrl(postImage)}
 						alt={postTitle}
 						width={80}
 						height={100}

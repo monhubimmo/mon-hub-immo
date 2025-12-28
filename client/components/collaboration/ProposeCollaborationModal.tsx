@@ -10,6 +10,7 @@ import { useCollaborationMutations } from '@/hooks/useCollaborations';
 import type { Property } from '@/lib/api/propertyApi';
 import type { SearchAd } from '@/types/searchAd';
 import { useForm } from '@/hooks/useForm';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 type PostData =
 	| {
@@ -150,11 +151,11 @@ export const ProposeCollaborationModal: React.FC<
 					{property.mainImage && (
 						<div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
 							<img
-								src={
+								src={toCdnUrl(
 									typeof property.mainImage === 'string'
 										? property.mainImage
-										: property.mainImage.url
-								}
+										: property.mainImage.url,
+								)}
 								alt={property.title}
 								width={80}
 								height={80}

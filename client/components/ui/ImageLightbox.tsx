@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface ImageLightboxProps {
 	isOpen: boolean;
@@ -321,7 +322,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
 				}}
 			>
 				<Image
-					src={currentImage.url}
+					src={toCdnUrl(currentImage.url)}
 					alt={currentImage.alt || `Image ${currentIndex + 1}`}
 					width={1200}
 					height={800}

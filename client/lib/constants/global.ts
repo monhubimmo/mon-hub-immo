@@ -4,6 +4,15 @@
  */
 
 // ============================================================================
+// CDN CONFIGURATION
+// ============================================================================
+
+export const CDN_URL = 'https://cdn.monhubimmo.fr' as const;
+export const CDN_FALLBACK_URL =
+	'https://d2of14y3b5uig5.cloudfront.net' as const;
+export const S3_URL = 'https://monhubimmo.s3.amazonaws.com' as const;
+
+// ============================================================================
 // APP METADATA
 // ============================================================================
 

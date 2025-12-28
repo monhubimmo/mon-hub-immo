@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import type { User } from '@/types/auth';
 import { logger } from '@/lib/utils/logger';
+import { toCdnUrl } from '@/lib/utils/imageUtils';
 
 // ============================================================================
 // PROFILE AVATAR COMPONENT
@@ -192,14 +193,15 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
 				profileImage: typedUser.profileImage,
 				name: typedUser.name,
 				avatarUrl: typedUser.avatarUrl,
-		  }
+			}
 		: { _id: String((user as string) || 'unknown') };
 
 	const initials = getUserInitials(user);
 	// Handle both profileImage and avatarUrl (for ChatUser compatibility)
-	const imageUrl = isObj
+	const rawImageUrl = isObj
 		? userObj.profileImage || userObj.avatarUrl || null
 		: null;
+	const imageUrl = rawImageUrl ? toCdnUrl(rawImageUrl) : null;
 	const hasProfileImage =
 		imageUrl && typeof imageUrl === 'string' && imageUrl.trim() !== '';
 

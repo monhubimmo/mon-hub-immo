@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Features } from '@/lib/constants';
-import { getImageUrl } from '@/lib/utils/imageUtils';
+import { getImageUrl, toCdnUrl } from '@/lib/utils/imageUtils';
 
 interface PropertyHeroProps {
 	allImages: (string | { url: string; key: string })[];
@@ -18,9 +18,10 @@ export const PropertyHero = ({
 }: PropertyHeroProps) => {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-	// Helper function to get image URL
+	// Helper function to get image URL with CDN
 	const getImageSrc = (image: string | { url: string; key: string }) => {
-		return typeof image === 'string' ? image : image.url;
+		const url = typeof image === 'string' ? image : image.url;
+		return toCdnUrl(url);
 	};
 
 	// current image src state for main image (allows fallback on error)
