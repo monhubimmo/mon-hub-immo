@@ -20,6 +20,7 @@ export const connectDB = async (): Promise<void> => {
 			socketTimeoutMS: 45000,
 			bufferCommands: false,
 			maxPoolSize: 10,
+			dbName: 'monhubimmo',
 		});
 		logger.info(
 			`[Database] MongoDB Connected: ${mongoose.connection.host}`,
