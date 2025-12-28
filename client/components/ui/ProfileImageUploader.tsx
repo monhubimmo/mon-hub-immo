@@ -236,6 +236,7 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
 										: 128
 							}
 							className="w-full h-full object-cover"
+							unoptimized
 							onError={(e) => {
 								const target = e.target as HTMLImageElement;
 								target.style.display = 'none';

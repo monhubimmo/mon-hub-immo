@@ -116,6 +116,7 @@ export const PropertyImageManager: React.FC<PropertyImageManagerProps> = ({
 								width={128}
 								height={128}
 								className="w-full h-full object-cover rounded-lg border-2 border-gray-200"
+								unoptimized
 							/>
 							<button
 								type="button"
@@ -204,6 +205,7 @@ export const PropertyImageManager: React.FC<PropertyImageManagerProps> = ({
 											alt={`Image galerie ${index + 1}`}
 											fill
 											className="object-cover pointer-events-none"
+											unoptimized
 										/>
 										{/* Drag handle */}
 										<div className="absolute top-1 left-1 bg-white/80 rounded p-0.5 opacity-0 group-hover:opacity-100 transition-opacity">

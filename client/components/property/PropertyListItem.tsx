@@ -28,6 +28,7 @@ export const PropertyListItem: React.FC<PropertyListItemProps> = ({
 						alt={property.title}
 						fill
 						className="object-cover"
+						unoptimized
 					/>
 				</div>
 				<div className="flex-1 p-4">

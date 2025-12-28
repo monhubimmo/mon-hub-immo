@@ -288,6 +288,7 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
 						height={sizes.image.height}
 						className="w-full h-full object-cover"
 						onError={handleImageError}
+						unoptimized
 						priority={
 							size === 'lg' || size === 'xl' || size === '2xl'
 						}

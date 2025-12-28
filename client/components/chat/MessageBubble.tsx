@@ -126,6 +126,7 @@ const MessageImage: React.FC<{
 			width={600}
 			height={400}
 			className="h-auto w-auto max-w-full rounded cursor-pointer hover:opacity-90 transition-opacity"
+			unoptimized
 			onClick={() =>
 				onClick
 					? onClick(toCdnUrl(imageUrl))

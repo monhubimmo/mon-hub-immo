@@ -330,6 +330,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
 					style={{
 						transform: `scale(${zoomLevel}) translate(${position.x / zoomLevel}px, ${position.y / zoomLevel}px)`,
 					}}
+					unoptimized
 					priority
 				/>
 			</div>

@@ -603,6 +603,7 @@ export const AgentProfileCard: React.FC<AgentProfileCardProps> = ({ user }) => {
 												fill
 												className="object-contain p-3 sm:p-4"
 												sizes="(max-width: 640px) 280px, 320px"
+												unoptimized
 											/>
 											<div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
 												<span className="bg-white/95 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium text-gray-700 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5">

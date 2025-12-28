@@ -159,6 +159,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 								alt="Fichier téléchargé"
 								fill
 								className="object-cover"
+								unoptimized
 							/>
 						)}
 					</div>
