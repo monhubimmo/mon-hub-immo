@@ -14,7 +14,7 @@ export default function ForgotPasswordPage() {
 	}
 
 	return (
-		<AuthLayout title="Forgot Password">
+		<AuthLayout title="Mot de passe oublié">
 			<ForgotPasswordForm />
 		</AuthLayout>
 	);

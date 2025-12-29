@@ -103,7 +103,7 @@ export const NotificationBell = () => {
 					<div className="py-2">
 						{state?.items?.length === 0 ? (
 							<div className="p-4 text-sm text-gray-500 text-center">
-								No notifications
+								Aucune notification
 							</div>
 						) : (
 							state?.items?.map((n) => (
@@ -200,8 +200,8 @@ export const NotificationBell = () => {
 													/* noop */
 												}
 											}}
-											aria-label="Remove notification"
-											title="Remove"
+											aria-label="Supprimer la notification"
+											title="Supprimer"
 										>
 											<svg
 												className="w-5 h-5 text-red-500"

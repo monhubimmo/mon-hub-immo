@@ -387,7 +387,7 @@ const VideoPlayer = ({ src, className = '' }: VideoPlayerProps) => (
 			controls
 		>
 			<source src={src} type="video/mp4" />
-			Your browser does not support the video tag.
+			Votre navigateur ne supporte pas la lecture de vidéos.
 		</video>
 		<button
 			className="absolute inset-0 flex items-center justify-center"

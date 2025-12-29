@@ -16,7 +16,6 @@ interface ProfileImageUploaderProps {
 	size?: 'small' | 'medium' | 'large';
 	showRemove?: boolean;
 	onRemove?: () => void;
-	uploadingText?: string;
 	userName?: string;
 }
 
@@ -28,7 +27,6 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
 	size = 'medium',
 	showRemove = true,
 	onRemove,
-	uploadingText: _uploadingText = 'Uploading...',
 	userName = '',
 }) => {
 	const [uploadError, setUploadError] = useState<string>('');

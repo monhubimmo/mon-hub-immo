@@ -15,7 +15,7 @@ export default function ResetPasswordPage() {
 	}
 
 	return (
-		<AuthLayout title="Reset Password">
+		<AuthLayout title="Réinitialiser le mot de passe">
 			<Suspense
 				fallback={
 					<div className="animate-pulse bg-gray-100 h-64 rounded-lg"></div>

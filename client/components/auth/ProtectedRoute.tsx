@@ -66,10 +66,10 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
 						</svg>
 					</div>
 					<h3 className="text-lg font-semibold text-gray-900 mb-2">
-						Access Denied
+						Accès refusé
 					</h3>
 					<p className="text-gray-600 mb-4">
-						This page is only available for {requiredUserType}s.
+						Cette page est réservée aux {requiredUserType}s.
 					</p>
 					<button
 						onClick={() =>
@@ -79,7 +79,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
 						}
 						className="text-brand hover:text-brand font-medium"
 					>
-						Return to Dashboard
+						Retour au tableau de bord
 					</button>
 				</div>
 			</div>

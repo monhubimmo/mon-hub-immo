@@ -65,7 +65,7 @@ const SingleCheckmark: React.FC<{ className?: string }> = React.memo(
 			className={`w-3 h-3 ${className}`}
 			fill="currentColor"
 			viewBox="0 0 20 20"
-			aria-label="Message sent"
+			aria-label="Message envoyé"
 		>
 			<path
 				fillRule="evenodd"
@@ -87,7 +87,7 @@ const DoubleCheckmark: React.FC<{ className?: string }> = React.memo(
 			className={`w-3 h-3 -ml-2 ${className}`}
 			fill="currentColor"
 			viewBox="0 0 20 20"
-			aria-label="Message read"
+			aria-label="Message lu"
 		>
 			<path
 				fillRule="evenodd"
@@ -174,7 +174,7 @@ const MessageStatus: React.FC<MessageStatusProps> = React.memo(
 				{selectedUser?.isOnline && (
 					<span
 						className="w-2 h-2 bg-green-500 rounded-full"
-						aria-label="Online"
+						aria-label="En ligne"
 					></span>
 				)}
 				<span className={statusColor}>{statusText}</span>

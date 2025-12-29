@@ -458,7 +458,7 @@ export const getCollaborationById = async (
 		if (!isAdmin && !isOwner && !isCollaborator) {
 			res.status(403).json({
 				success: false,
-				message: 'Not authorized to view this collaboration',
+				message: 'Non autorisé à voir cette collaboration',
 			});
 			return;
 		}
@@ -499,7 +499,7 @@ export const adminCloseCollaboration = async (
 		if (!userId || userType !== 'admin') {
 			res.status(403).json({
 				success: false,
-				message: 'Admin access required',
+				message: 'Accès administrateur requis',
 			});
 			return;
 		}
@@ -514,7 +514,7 @@ export const adminCloseCollaboration = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}
@@ -524,7 +524,7 @@ export const adminCloseCollaboration = async (
 			collaboration.updatedAt = new Date();
 			collaboration.activities.push({
 				type: 'status_update',
-				message: 'Collaboration cancelled by admin',
+				message: "Collaboration annulée par l'administrateur",
 				createdBy: new Types.ObjectId(userId),
 				createdAt: new Date(),
 			});
@@ -635,7 +635,7 @@ export const adminForceComplete = async (
 		if (!userId || userType !== 'admin') {
 			res.status(403).json({
 				success: false,
-				message: 'Admin access required',
+				message: 'Accès administrateur requis',
 			});
 			return;
 		}
@@ -644,7 +644,7 @@ export const adminForceComplete = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}
@@ -984,7 +984,7 @@ export const cancelCollaboration = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}
@@ -997,7 +997,7 @@ export const cancelCollaboration = async (
 		if (!isOwner && !isCollaborator) {
 			res.status(403).json({
 				success: false,
-				message: 'Not authorized to cancel this collaboration',
+				message: 'Non autorisé à annuler cette collaboration',
 			});
 			return;
 		}
@@ -1006,7 +1006,7 @@ export const cancelCollaboration = async (
 		if (collaboration.status === 'completed') {
 			res.status(400).json({
 				success: false,
-				message: 'Cannot cancel a completed collaboration',
+				message: "Impossible d'annuler une collaboration terminée",
 			});
 			return;
 		}
@@ -1019,7 +1019,7 @@ export const cancelCollaboration = async (
 
 		res.status(200).json({
 			success: true,
-			message: 'Collaboration cancelled successfully',
+			message: 'Collaboration annulée avec succès',
 			collaboration,
 		});
 
@@ -1100,7 +1100,8 @@ export const updateProgressStatus = async (
 		) {
 			res.status(400).json({
 				success: false,
-				message: 'validatedBy must be either "owner" or "collaborator"',
+				message:
+					'Le champ validatedBy doit être "owner" ou "collaborator"',
 			});
 			return;
 		}
@@ -1117,7 +1118,7 @@ export const updateProgressStatus = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}
@@ -1130,7 +1131,7 @@ export const updateProgressStatus = async (
 		if (!isOwner && !isCollaborator) {
 			res.status(403).json({
 				success: false,
-				message: 'Not authorized to update this collaboration',
+				message: 'Non autorisé à mettre à jour cette collaboration',
 			});
 			return;
 		}
@@ -1143,7 +1144,7 @@ export const updateProgressStatus = async (
 			res.status(400).json({
 				success: false,
 				message:
-					'Can only update progress for active or accepted collaborations',
+					'Mise à jour possible uniquement pour les collaborations actives ou acceptées',
 			});
 			return;
 		}
@@ -1158,7 +1159,7 @@ export const updateProgressStatus = async (
 
 		res.status(200).json({
 			success: true,
-			message: 'Progress status updated successfully',
+			message: 'Statut de progression mis à jour avec succès',
 			collaboration,
 		});
 
@@ -1240,7 +1241,7 @@ export const signCollaboration = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}
@@ -1250,7 +1251,7 @@ export const signCollaboration = async (
 
 		res.status(200).json({
 			success: true,
-			message: 'Contract signed successfully',
+			message: 'Contrat signé avec succès',
 			collaboration,
 		});
 
@@ -1274,8 +1275,8 @@ export const signCollaboration = async (
 			actorId: userId,
 			type: 'contract:signed',
 			entity: { type: 'collaboration', id: collaboration._id },
-			title: 'Contract signed',
-			message: 'The contract has been signed.',
+			title: 'Contrat signé',
+			message: 'Le contrat a été signé.',
 			data: {
 				actorName,
 				actorAvatar: actor?.profileImage || undefined,
@@ -1289,8 +1290,8 @@ export const signCollaboration = async (
 				actorId: userId,
 				type: 'collab:activated',
 				entity: { type: 'collaboration', id: collaboration._id },
-				title: 'Collaboration activated',
-				message: 'Collaboration is now active.',
+				title: 'Collaboration activée',
+				message: 'La collaboration est maintenant active.',
 				data: {
 					actorName,
 					actorAvatar: actor?.profileImage || undefined,
@@ -1304,7 +1305,7 @@ export const signCollaboration = async (
 		);
 		res.status(500).json({
 			success: false,
-			message: 'Internal server error',
+			message: 'Erreur interne du serveur',
 		});
 	}
 };
@@ -1336,7 +1337,7 @@ export const completeCollaboration = async (
 		if (!completionReason || !validReasons.includes(completionReason)) {
 			res.status(400).json({
 				success: false,
-				message: 'Invalid or missing completion reason',
+				message: 'Raison de complétion invalide ou manquante',
 			});
 			return;
 		}
@@ -1351,7 +1352,7 @@ export const completeCollaboration = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}
@@ -1364,7 +1365,7 @@ export const completeCollaboration = async (
 		if (!isOwner && !isCollaborator) {
 			res.status(403).json({
 				success: false,
-				message: 'Not authorized to complete this collaboration',
+				message: 'Non autorisé à terminer cette collaboration',
 			});
 			return;
 		}
@@ -1373,7 +1374,8 @@ export const completeCollaboration = async (
 		if (collaboration.status !== 'active') {
 			res.status(400).json({
 				success: false,
-				message: 'Can only complete active collaborations',
+				message:
+					'Seules les collaborations actives peuvent être terminées',
 			});
 			return;
 		}
@@ -1391,7 +1393,7 @@ export const completeCollaboration = async (
 			res.status(400).json({
 				success: false,
 				message:
-					'Cannot complete: "Affaire conclue" must be validated by both users',
+					'Impossible de terminer : "Affaire conclue" doit être validée par les deux parties',
 			});
 			return;
 		}
@@ -1416,7 +1418,7 @@ export const completeCollaboration = async (
 		// Add activity log
 		collaboration.activities.push({
 			type: 'status_update',
-			message: `Collaboration completed by ${isOwner ? 'property owner' : 'collaborator'}`,
+			message: `Collaboration terminée par ${isOwner ? 'le propriétaire' : 'le collaborateur'}`,
 			createdBy: new Types.ObjectId(userId),
 			createdAt: new Date(),
 		});
@@ -1462,7 +1464,7 @@ export const completeCollaboration = async (
 
 		res.status(200).json({
 			success: true,
-			message: 'Collaboration completed successfully',
+			message: 'Collaboration terminée avec succès',
 			collaboration,
 		}); // Notify the other party about completion
 		const completeRecipientId = isOwner
@@ -1557,7 +1559,7 @@ export const adminUpdateCollaboration = async (
 		if (!userId || userType !== 'admin') {
 			res.status(403).json({
 				success: false,
-				message: 'Admin access required',
+				message: 'Accès administrateur requis',
 			});
 			return;
 		}
@@ -1566,7 +1568,7 @@ export const adminUpdateCollaboration = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}
@@ -1643,7 +1645,7 @@ export const adminDeleteCollaboration = async (
 		if (!userId || userType !== 'admin') {
 			res.status(403).json({
 				success: false,
-				message: 'Admin access required',
+				message: 'Accès administrateur requis',
 			});
 			return;
 		}
@@ -1652,7 +1654,7 @@ export const adminDeleteCollaboration = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}

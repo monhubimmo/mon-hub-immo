@@ -88,7 +88,7 @@ export const signContract = async (
 		// Add activity log
 		collaboration.activities.push({
 			type: 'signing',
-			message: `Contract signed by ${isOwner ? 'property owner' : 'collaborator'}`,
+			message: `Contrat signé par ${isOwner ? 'le propriétaire' : 'le collaborateur'}`,
 			createdBy: new Types.ObjectId(userId),
 			createdAt: signedAt,
 		});
@@ -101,7 +101,7 @@ export const signContract = async (
 			collaboration.activities.push({
 				type: 'status_update',
 				message:
-					'Collaboration activated - both parties have signed the contract',
+					'Collaboration activée - les deux parties ont signé le contrat',
 				createdBy: new Types.ObjectId(userId),
 				createdAt: signedAt,
 			});
@@ -171,8 +171,8 @@ export const signContract = async (
 			actorId: userId,
 			type: 'contract:signed',
 			entity: { type: 'collaboration', id: collaboration._id },
-			title: 'Contract signed',
-			message: `${signerName} signed the contract.`,
+			title: 'Contrat signé',
+			message: `${signerName} a signé le contrat.`,
 			data: {
 				actorName: signerName,
 				actorAvatar: signer?.profileImage || undefined,
@@ -189,8 +189,8 @@ export const signContract = async (
 				actorId: userId,
 				type: 'collab:activated',
 				entity: { type: 'collaboration', id: collaboration._id },
-				title: 'Collaboration activated',
-				message: `Collaboration is now active. Activated by ${signerName}.`,
+				title: 'Collaboration activée',
+				message: `La collaboration est maintenant active. Activée par ${signerName}.`,
 				data: {
 					actorName: signerName,
 					actorAvatar: signer?.profileImage || undefined,
@@ -278,7 +278,7 @@ export const updateContract = async (
 			// Add activity log for contract modification
 			collaboration.activities.push({
 				type: 'note',
-				message: `Contract modified by ${isOwner ? 'property owner' : 'collaborator'}${wasOwnerSigned || wasCollaboratorSigned ? ' - signatures reset, both parties must sign again' : ''}`,
+				message: `Contrat modifié par ${isOwner ? 'le propriétaire' : 'le collaborateur'}${wasOwnerSigned || wasCollaboratorSigned ? ' - signatures réinitialisées, les deux parties doivent signer à nouveau' : ''}`,
 				createdBy: new Types.ObjectId(userId),
 				createdAt: new Date(),
 			});
@@ -355,9 +355,9 @@ export const updateContract = async (
 				actorId: userId,
 				type: 'contract:updated',
 				entity: { type: 'collaboration', id: collaboration._id },
-				title: 'Contract updated',
+				title: 'Contrat mis à jour',
 				message:
-					'Contract content changed. Signatures reset; both must sign again.',
+					'Le contenu du contrat a été modifié. Signatures réinitialisées ; les deux parties doivent signer à nouveau.',
 				data: {
 					actorName,
 					actorAvatar: actor?.profileImage || undefined,
@@ -403,7 +403,7 @@ export const getContract = async (
 		if (!collaboration) {
 			res.status(404).json({
 				success: false,
-				message: 'Collaboration not found',
+				message: 'Collaboration introuvable',
 			});
 			return;
 		}

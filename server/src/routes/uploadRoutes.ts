@@ -260,7 +260,7 @@ router.post(
 			if (!mainImage && validGalleryCount === 0) {
 				return res.status(400).json({
 					success: false,
-					message: 'At least one image URL must be requested',
+					message: "Au moins une URL d'image doit être demandée",
 				});
 			}
 

@@ -53,20 +53,22 @@ export const ProfileUpdateModal: React.FC<ProfileUpdateModalProps> = ({
 			const newErrors: Record<string, string> = {};
 
 			if (!values.firstName.trim()) {
-				newErrors.firstName = 'First name is required';
+				newErrors.firstName = 'Le prénom est requis';
 			} else if (values.firstName.trim().length < 2) {
 				newErrors.firstName =
-					'First name must be at least 2 characters';
+					'Le prénom doit contenir au moins 2 caractères';
 			}
 
 			if (!values.lastName.trim()) {
-				newErrors.lastName = 'Last name is required';
+				newErrors.lastName = 'Le nom est requis';
 			} else if (values.lastName.trim().length < 2) {
-				newErrors.lastName = 'Last name must be at least 2 characters';
+				newErrors.lastName =
+					'Le nom doit contenir au moins 2 caractères';
 			}
 
 			if (values.profileImage && !isValidUrl(values.profileImage)) {
-				newErrors.profileImage = 'Please enter a valid image URL';
+				newErrors.profileImage =
+					"Veuillez entrer une URL d'image valide";
 			}
 
 			if (Object.keys(newErrors).length > 0) {
@@ -143,7 +145,7 @@ export const ProfileUpdateModal: React.FC<ProfileUpdateModalProps> = ({
 		<Modal
 			isOpen={isOpen}
 			onClose={handleClose}
-			title="Update Profile"
+			title="Modifier le profil"
 			size="md"
 		>
 			{/* Form */}
@@ -214,12 +216,12 @@ export const ProfileUpdateModal: React.FC<ProfileUpdateModalProps> = ({
 				{/* Read-only fields */}
 				<div className="bg-gray-50 rounded-lg p-4 space-y-3">
 					<h4 className="text-sm font-medium text-gray-700">
-						Account Information (Read Only)
+						Informations du compte (Lecture seule)
 					</h4>
 					<div className="grid grid-cols-1 gap-3 text-sm">
 						<div>
 							<span className="font-medium text-gray-600">
-								Email:
+								Email :
 							</span>
 							<span className="ml-2 text-gray-900">
 								{user.email}
@@ -227,7 +229,7 @@ export const ProfileUpdateModal: React.FC<ProfileUpdateModalProps> = ({
 						</div>
 						<div>
 							<span className="font-medium text-gray-600">
-								Account Type:
+								Type de compte :
 							</span>
 							<span className="ml-2 text-gray-900 capitalize">
 								{user.userType}
@@ -235,7 +237,7 @@ export const ProfileUpdateModal: React.FC<ProfileUpdateModalProps> = ({
 						</div>
 						<div>
 							<span className="font-medium text-gray-600">
-								Email Status:
+								Statut de l&apos;email :
 							</span>
 							<span
 								className={`ml-2 px-2 py-1 text-xs font-semibold rounded-full ${
@@ -245,8 +247,8 @@ export const ProfileUpdateModal: React.FC<ProfileUpdateModalProps> = ({
 								}`}
 							>
 								{user.isEmailVerified
-									? 'Verified'
-									: 'Not Verified'}
+									? 'Vérifié'
+									: 'Non vérifié'}
 							</span>
 						</div>
 					</div>
@@ -261,14 +263,14 @@ export const ProfileUpdateModal: React.FC<ProfileUpdateModalProps> = ({
 						disabled={isSubmitting}
 						className="flex-1"
 					>
-						Cancel
+						Annuler
 					</Button>
 					<Button
 						type="submit"
 						loading={isSubmitting}
 						className="flex-1"
 					>
-						Save Changes
+						Enregistrer
 					</Button>
 				</div>
 			</form>

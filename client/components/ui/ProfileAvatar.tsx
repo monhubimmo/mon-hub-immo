@@ -306,7 +306,7 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
 			{showOnlineStatus && isOnline && (
 				<div
 					className={`absolute ${sizes.onlineIndicator} rounded-full border-2 border-white bg-green-500`}
-					aria-label="Online"
+					aria-label="En ligne"
 				/>
 			)}
 		</div>

@@ -146,7 +146,7 @@ export const AgentsListSection = forwardRef<
 							<button
 								onClick={() => onScrollCarousel('left')}
 								className="absolute left-0 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 sm:p-3 border border-gray-300 bg-transparent hover:bg-white/60 backdrop-blur-sm transition-colors hidden sm:block"
-								aria-label="Previous"
+								aria-label="Précédent"
 							>
 								<svg
 									className="w-6 h-6 text-gray-600"
@@ -185,7 +185,7 @@ export const AgentsListSection = forwardRef<
 							<button
 								onClick={() => onScrollCarousel('right')}
 								className="absolute right-0 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 sm:p-3 border border-gray-300 bg-transparent hover:bg-white/60 backdrop-blur-sm transition-colors hidden sm:block"
-								aria-label="Next"
+								aria-label="Suivant"
 							>
 								<svg
 									className="w-6 h-6 text-gray-600"

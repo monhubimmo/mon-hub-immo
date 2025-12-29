@@ -4,14 +4,14 @@ import { WelcomeContent } from '@/components/auth/WelcomeContent';
 import { AuthLayout } from '@/components/auth/AuthLayout';
 
 export const metadata: Metadata = {
-  title: 'Welcome - HubImmo',
-  description: 'Welcome to HubImmo',
+	title: 'Bienvenue - HubImmo',
+	description: 'Bienvenue sur HubImmo',
 };
 
 export default function WelcomePage() {
-  return (
-    <AuthLayout title="Welcome to HubImmo!">
-      <WelcomeContent />
-    </AuthLayout>
-  );
+	return (
+		<AuthLayout title="Bienvenue sur HubImmo !">
+			<WelcomeContent />
+		</AuthLayout>
+	);
 }

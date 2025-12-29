@@ -94,7 +94,7 @@ export default function Header() {
 								onClick={() =>
 									setIsMobileMenuOpen(!isMobileMenuOpen)
 								}
-								aria-label="Toggle menu"
+								aria-label="Ouvrir/fermer le menu"
 								aria-expanded={isMobileMenuOpen}
 							>
 								<svg

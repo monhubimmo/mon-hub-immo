@@ -1,4 +1,4 @@
-import { CDN_URL, CDN_FALLBACK_URL, S3_URL } from '@/lib/constants/global';
+import { CDN_URL, CDN_FALLBACK_URL } from '@/lib/constants/global';
 
 interface ImageData {
 	url?: string;

@@ -4,7 +4,6 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useRequireAuth } from '@/hooks';
 import { Button } from '../ui/Button';
-import { Features } from '@/lib/constants';
 import { getRoleBasedRedirect } from '@/lib/config/routes.config';
 
 export const WelcomeContent: React.FC = () => {
@@ -33,24 +32,24 @@ export const WelcomeContent: React.FC = () => {
 
 			<div>
 				<h3 className="text-xl font-semibold text-gray-900 mb-2">
-					Welcome, {user.firstName}!
+					Bienvenue, {user.firstName} !
 				</h3>
 				<p className="text-gray-600">
-					Your account has been verified successfully! You are all set
-					to start exploring properties on HubImmo.
+					Votre compte a été vérifié avec succès ! Vous êtes prêt à
+					explorer les biens sur MonHubImmo.
 				</p>
 			</div>
 
 			<div className="bg-gray-50 rounded-lg p-4">
 				<div className="text-sm text-gray-600 space-y-1">
 					<p>
-						<strong>Name:</strong> {user.firstName} {user.lastName}
+						<strong>Nom :</strong> {user.firstName} {user.lastName}
 					</p>
 					<p>
-						<strong>Email:</strong> {user.email}
+						<strong>Email :</strong> {user.email}
 					</p>
 					<p>
-						<strong>Account Type:</strong> {user.userType}
+						<strong>Type de compte :</strong> {user.userType}
 					</p>
 				</div>
 			</div>
@@ -60,7 +59,7 @@ export const WelcomeContent: React.FC = () => {
 				className="w-full"
 				size="lg"
 			>
-				Continue to Dashboard
+				Accéder au tableau de bord
 			</Button>
 		</div>
 	);

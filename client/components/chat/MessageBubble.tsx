@@ -364,8 +364,8 @@ const MessageBubble: React.FC<MessageBubbleProps> = React.memo(
 						<button
 							onClick={openConfirm}
 							className="hidden group-hover:flex items-center justify-center absolute -top-2 -right-2 w-7 h-7 rounded-full bg-red-600 text-white shadow hover:bg-red-700"
-							title="Delete message"
-							aria-label="Delete message"
+							title="Supprimer le message"
+							aria-label="Supprimer le message"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

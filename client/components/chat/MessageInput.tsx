@@ -395,7 +395,7 @@ const MessageInput: React.FC<MessageInputProps> = React.memo(
 							loading={isUploading}
 							variant="outline"
 							className="px-3 py-3"
-							aria-label="Add attachment"
+							aria-label="Ajouter une pièce jointe"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

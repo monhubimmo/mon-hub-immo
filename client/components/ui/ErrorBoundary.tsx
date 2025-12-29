@@ -50,19 +50,20 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
 			return (
 				<div className="min-h-screen flex items-center justify-center p-4">
 					<div className="max-w-md w-full">
-						<Alert type="error" title="Something went wrong">
+						<Alert type="error" title="Une erreur est survenue">
 							<div className="space-y-4">
 								<p>
-									An unexpected error occurred. Please try
-									again or contact support if the problem
-									persists.
+									Une erreur inattendue s&apos;est produite.
+									Veuillez réessayer ou contacter le support
+									si le problème persiste.
 								</p>
 
 								{process.env.NODE_ENV === 'development' &&
 									this.state.error && (
 										<details className="mt-4">
 											<summary className="cursor-pointer text-sm font-medium">
-												Error Details (Development Only)
+												Détails de l&apos;erreur
+												(Développement uniquement)
 											</summary>
 											<pre className="mt-2 text-xs bg-gray-100 p-2 rounded overflow-auto">
 												{this.state.error.stack}
@@ -76,14 +77,14 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
 										variant="outline"
 										size="sm"
 									>
-										Try Again
+										Réessayer
 									</Button>
 									<Button
 										onClick={this.handleReload}
 										variant="primary"
 										size="sm"
 									>
-										Reload Page
+										Recharger la page
 									</Button>
 								</div>
 							</div>

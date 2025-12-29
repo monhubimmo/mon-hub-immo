@@ -10,7 +10,7 @@ interface LoadingOverlayProps {
 
 export const LoadingOverlay: React.FC<LoadingOverlayProps> = ({
 	isLoading,
-	message = 'Loading...',
+	message = 'Chargement...',
 	children,
 	className = '',
 }) => {
@@ -61,7 +61,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
 			<div className="text-center p-8">
 				{errorComponent || (
 					<div className="text-red-600">
-						<p className="font-medium">Something went wrong</p>
+						<p className="font-medium">Une erreur est survenue</p>
 						<p className="text-sm text-gray-500 mt-1">{error}</p>
 					</div>
 				)}
@@ -78,7 +78,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
 			<div className="text-center p-8">
 				{emptyComponent || (
 					<div className="text-gray-500">
-						<p>No data available</p>
+						<p>Aucune donnée disponible</p>
 					</div>
 				)}
 			</div>

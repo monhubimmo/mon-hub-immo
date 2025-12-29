@@ -283,7 +283,7 @@ export default function MonAgentImmoPage() {
 									<div className="relative max-w-xs mx-auto lg:max-w-none">
 										<Image
 											src="/illustrations/search-properties.png"
-											alt="Professional team"
+											alt="Équipe professionnelle"
 											width={500}
 											height={400}
 											className="w-full h-auto"
@@ -342,7 +342,7 @@ export default function MonAgentImmoPage() {
 									<div className="relative max-w-xs mx-auto lg:max-w-none">
 										<Image
 											src="/illustrations/team-group.png"
-											alt="Professional team"
+											alt="Équipe professionnelle"
 											width={500}
 											height={400}
 											className="w-full h-auto"
@@ -402,7 +402,7 @@ export default function MonAgentImmoPage() {
 								<div className="flex items-center justify-center">
 									<Image
 										src="/illustrations/secure-data.png"
-										alt="Secure and trusted platform"
+										alt="Plateforme sécurisée et fiable"
 										width={400}
 										height={400}
 										className="w-full h-auto max-w-sm"
@@ -439,7 +439,7 @@ export default function MonAgentImmoPage() {
 								<div className="flex-shrink-0">
 									<Image
 										src="/illustrations/appointment-scheduling.png"
-										alt="Real estate agent"
+										alt="Agent immobilier"
 										width={300}
 										height={300}
 										className="w-48 sm:w-64 lg:w-80 h-auto"
@@ -459,7 +459,7 @@ export default function MonAgentImmoPage() {
 									<div className="flex items-center justify-center order-2 md:order-1">
 										<Image
 											src="/illustrations/puzzle-collaboration.png"
-											alt="Agent collaboration"
+											alt="Collaboration entre agents"
 											width={300}
 											height={300}
 											className="w-48 sm:w-64 lg:w-full h-auto max-w-sm"
