@@ -22,7 +22,7 @@ const Cookies = () => {
 								MonHubimmo
 							</span>
 							<span>•</span>
-							<span>Dernière mise à jour : 29 août 2025</span>
+							<span>Dernière mise à jour : 30 décembre 2025</span>
 						</div>
 					</div>
 
@@ -50,7 +50,7 @@ const Cookies = () => {
 										l&apos;utilisation de vos données et vos
 										droits, consultez notre{' '}
 										<a
-											href="/politique-confidentialite"
+											href="/politique-de-confidentialite"
 											className="text-[#00b4d8] underline hover:text-blue-600 font-medium"
 										>
 											Politique de confidentialité

@@ -25,7 +25,7 @@ const PolitiqueConfidentialite = () => {
 								MonHubimmo
 							</span>
 							<span>•</span>
-							<span>Dernière mise à jour : 14 août 2025</span>
+							<span>Dernière mise à jour : 30 décembre 2025</span>
 						</div>
 					</div>
 
@@ -33,7 +33,7 @@ const PolitiqueConfidentialite = () => {
 					<div className="space-y-8">
 						{/* Introduction */}
 						<section className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-							<div className="text-gray-700 text-sm md:text-base leading-relaxed">
+							<div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-4">
 								<p>
 									Chez MonHubimmo, la protection de vos
 									données personnelles est une priorité. Nous
@@ -41,6 +41,26 @@ const PolitiqueConfidentialite = () => {
 									la sécurité dans le traitement des
 									informations que vous nous confiez.
 								</p>
+								<div className="bg-gray-50 border border-gray-200 p-4 rounded">
+									<p className="font-semibold text-gray-800 mb-2">
+										Responsable du traitement :
+									</p>
+									<p>Monhubimmo SAS</p>
+									<p>
+										44 Le Domaine du Golf, 35540 Le
+										Tronchet, France
+									</p>
+									<p>SIRET : 995 292 547 00016</p>
+									<p>
+										Email :{' '}
+										<a
+											href="mailto:contact@monhubimmo.fr"
+											className="text-[#00b4d8] hover:underline"
+										>
+											contact@monhubimmo.fr
+										</a>
+									</p>
+								</div>
 							</div>
 						</section>
 
@@ -120,14 +140,54 @@ const PolitiqueConfidentialite = () => {
 							</h2>
 							<div className="ml-11 space-y-4 text-gray-700 text-sm md:text-base leading-relaxed">
 								<p>
-									Vos données sont stockées sur des serveurs
-									sécurisés situés en Europe.
+									Vos données sont hébergées par des
+									prestataires de confiance offrant des
+									garanties de sécurité conformes aux
+									standards de l&apos;industrie :
+								</p>
+								<ul className="list-disc list-inside space-y-2 ml-4">
+									<li>
+										<strong>Base de données :</strong>{' '}
+										MongoDB Atlas (région Union Européenne)
+									</li>
+									<li>
+										<strong>Fichiers et images :</strong>{' '}
+										Amazon Web Services S3 (région Paris,
+										UE)
+									</li>
+									<li>
+										<strong>Application web :</strong>{' '}
+										Vercel Inc.
+									</li>
+									<li>
+										<strong>Services backend :</strong>{' '}
+										Railway Corporation
+									</li>
+									<li>
+										<strong>Envoi d&apos;emails :</strong>{' '}
+										Brevo (Sendinblue), société française
+									</li>
+									<li>
+										<strong>Paiements :</strong> Stripe
+										Payments Europe, Ltd.
+									</li>
+								</ul>
+								<p className="mt-4">
+									Certains de nos prestataires sont situés en
+									dehors de l&apos;Union Européenne
+									(États-Unis). Dans ce cas, nous nous
+									assurons que des garanties appropriées sont
+									en place (clauses contractuelles types, Data
+									Privacy Framework) pour protéger vos données
+									conformément au RGPD.
 								</p>
 								<p>
 									Des mesures techniques et organisationnelles
 									sont mises en place pour prévenir toute
 									perte, utilisation abusive, accès non
-									autorisé ou divulgation.
+									autorisé ou divulgation (chiffrement
+									SSL/TLS, authentification sécurisée,
+									sauvegardes régulières).
 								</p>
 							</div>
 						</section>

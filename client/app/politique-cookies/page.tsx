@@ -25,7 +25,7 @@ const PolitiqueCookies = () => {
 								MonHubimmo
 							</span>
 							<span>•</span>
-							<span>Dernière mise à jour : 29 août 2025</span>
+							<span>Dernière mise à jour : 30 décembre 2025</span>
 						</div>
 					</div>
 
@@ -33,13 +33,23 @@ const PolitiqueCookies = () => {
 					<div className="space-y-8">
 						{/* Introduction */}
 						<section className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-							<div className="text-gray-700 text-sm md:text-base leading-relaxed">
+							<div className="text-gray-700 text-sm md:text-base leading-relaxed space-y-4">
 								<p>
 									Le site MonHubimmo utilise des cookies afin
 									d&apos;améliorer l&apos;expérience
 									utilisateur, analyser la fréquentation et
 									proposer des contenus adaptés.
 								</p>
+								<div className="bg-gray-50 border border-gray-200 p-4 rounded">
+									<p className="font-semibold text-gray-800 mb-2">
+										Éditeur du site :
+									</p>
+									<p>
+										Monhubimmo SAS - 44 Le Domaine du Golf,
+										35540 Le Tronchet, France
+									</p>
+									<p>SIRET : 995 292 547 00016</p>
+								</div>
 							</div>
 						</section>
 
