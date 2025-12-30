@@ -83,6 +83,7 @@ router.post(
 				customer: stripeCustomerId,
 				payment_method_types: ['card'],
 				mode: 'subscription',
+				locale: 'fr',
 				line_items: [
 					{
 						price: priceId,
