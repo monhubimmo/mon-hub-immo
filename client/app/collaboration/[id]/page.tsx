@@ -811,7 +811,7 @@ export default function CollaborationPage() {
 																		<span className="text-gray-600">
 																			→
 																			Commission
-																			mandataire
+																			Propriétaire
 																		</span>
 																		<span className="text-lg font-semibold text-brand">
 																			{(
