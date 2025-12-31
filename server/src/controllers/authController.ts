@@ -27,6 +27,7 @@ import {
 	sanitizeEmail,
 	sanitizePhone,
 	sanitizeHtmlContent,
+	sanitizeCityName,
 } from '../utils/sanitize';
 import { compareVerificationCode } from '../utils/timingSafe';
 import {
@@ -1613,7 +1614,7 @@ export const updateProfile = async (
 
 			// Only update fields that are provided (not undefined)
 			if (professionalInfo.city !== undefined) {
-				user.professionalInfo.city = sanitizeString(
+				user.professionalInfo.city = sanitizeCityName(
 					professionalInfo.city,
 				);
 			}
@@ -1643,7 +1644,7 @@ export const updateProfile = async (
 			) {
 				user.professionalInfo.coveredCities =
 					professionalInfo.coveredCities.map((city: string) =>
-						sanitizeString(city),
+						sanitizeCityName(city),
 					);
 			}
 			if (professionalInfo.interventionRadius !== undefined) {
@@ -1775,7 +1776,7 @@ export const completeProfile = async (
 
 			// Sanitize string fields in professionalInfo
 			if (professionalInfo.city) {
-				sanitizedProfessionalInfo.city = sanitizeString(
+				sanitizedProfessionalInfo.city = sanitizeCityName(
 					professionalInfo.city,
 				);
 			}
@@ -1834,7 +1835,7 @@ export const completeProfile = async (
 					? professionalInfo.coveredCities
 					: Object.values(professionalInfo.coveredCities);
 				sanitizedProfessionalInfo.coveredCities = cities.map(
-					(city: string) => sanitizeString(city),
+					(city: string) => sanitizeCityName(city),
 				);
 			}
 			if (professionalInfo.mandateTypes) {

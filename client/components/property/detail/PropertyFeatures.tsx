@@ -14,7 +14,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 			</h2>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{/* Basic Property Info */}
-				{property.rooms && (
+				{!!property.rooms && (
 					<FeatureItem
 						icon="building"
 						color="blue"
@@ -22,7 +22,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 					/>
 				)}
 
-				{property.bedrooms && (
+				{!!property.bedrooms && (
 					<FeatureItem
 						icon="bed"
 						color="purple"
@@ -30,7 +30,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 					/>
 				)}
 
-				{property.bathrooms && (
+				{!!property.bathrooms && (
 					<FeatureItem
 						icon="bath"
 						color="teal"
@@ -38,7 +38,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 					/>
 				)}
 
-				{property.showerRooms && (
+				{!!property.showerRooms && (
 					<FeatureItem
 						icon="bath"
 						color="cyan"
@@ -47,7 +47,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 				)}
 
 				{/* Surface Information */}
-				{property.surface && (
+				{!!property.surface && (
 					<FeatureItem
 						icon="ruler"
 						color="green"
@@ -55,7 +55,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 					/>
 				)}
 
-				{property.landArea && (
+				{!!property.landArea && (
 					<FeatureItem
 						icon="land"
 						color="yellow"
@@ -64,7 +64,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 				)}
 
 				{/* Building Information */}
-				{property.floor !== undefined && (
+				{property.floor != null && (
 					<FeatureItem
 						icon="floor"
 						color="indigo"
@@ -72,7 +72,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 					/>
 				)}
 
-				{property.levels && (
+				{!!property.levels && (
 					<FeatureItem
 						icon="levels"
 						color="orange"
@@ -80,7 +80,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 					/>
 				)}
 
-				{property.parkingSpaces && (
+				{!!property.parkingSpaces && (
 					<FeatureItem
 						icon="parking"
 						color="blue"
@@ -123,7 +123,7 @@ export const PropertyFeatures = ({ property }: PropertyFeaturesProps) => {
 				)}
 
 				{/* Financial Info */}
-				{property.annualCondoFees && (
+				{!!property.annualCondoFees && (
 					<FeatureItem
 						icon="fees"
 						color="yellow"

@@ -18,6 +18,22 @@ export const sanitizeString = (input: string | undefined | null): string => {
 };
 
 /**
+ * Sanitize a city/location name
+ * Trims whitespace but does NOT escape HTML entities to preserve apostrophes
+ * Only allows letters, accented characters, spaces, apostrophes, and hyphens
+ */
+export const sanitizeCityName = (input: string | undefined | null): string => {
+	if (!input || typeof input !== 'string') return '';
+	const trimmed = input.trim();
+	// Remove any characters that aren't allowed in city names
+	// This is a whitelist approach - only keep valid characters
+	return trimmed.replace(
+		/[^a-zA-Z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF\u0100-\u017F\s'''`-]/g,
+		'',
+	);
+};
+
+/**
  * Sanitize HTML content (for rich text fields)
  * Allows safe HTML tags while removing dangerous elements
  */

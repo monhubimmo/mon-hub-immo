@@ -207,7 +207,7 @@ export function ProfessionalTab({
 										postalCode,
 									);
 								}}
-								placeholder="Rechercher une ville..."
+								placeholder="Rechercher une ville"
 							/>
 						</div>
 
@@ -325,7 +325,7 @@ export function ProfessionalTab({
 							const textContent = value
 								.replace(/<[^>]*>/g, '')
 								.trim();
-							if (textContent.length <= 1000) {
+							if (textContent.length <= 650) {
 								handleProfessionalChange(
 									'personalPitch',
 									value,
@@ -335,8 +335,11 @@ export function ProfessionalTab({
 						placeholder="Décrivez votre parcours et vos spécialités..."
 						minHeight="120px"
 						showCharCount
-						maxLength={1000}
+						maxLength={650}
 					/>
+					<span className="text-sm text-gray-500 mt-2 block">
+						Minimum 250 caractères requis
+					</span>
 				</div>
 
 				{/* Preferences */}

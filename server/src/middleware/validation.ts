@@ -145,12 +145,15 @@ const professionalInfoRules = {
 		.custom((value) => {
 			if (!Array.isArray(value)) return false;
 			if (value.length === 0) return false;
+			// Regex includes accented letters (U+00C0-U+00D6, U+00D8-U+00F6, U+00F8-U+00FF), Latin Extended-A, apostrophes, hyphens
 			return value.every(
 				(city) =>
 					typeof city === 'string' &&
 					city.length >= 2 &&
 					city.length <= 100 &&
-					/^[a-zA-ZÀ-ÿ\u0100-\u017F\s'-]+$/.test(city),
+					/^[a-zA-Z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF\u0100-\u017F\s'''`-]+$/.test(
+						city,
+					),
 			);
 		})
 		.withMessage('Noms de villes invalides'),

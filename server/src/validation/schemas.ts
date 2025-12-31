@@ -172,7 +172,8 @@ export const completeProfileSchema = z.object({
 					.min(2, 'Nom de ville invalide')
 					.max(100)
 					.regex(
-						/^[a-zA-ZÀ-ÿ\u0100-\u017F\s'-]+$/,
+						// Includes accented letters (U+00C0-U+00D6, U+00D8-U+00F6, U+00F8-U+00FF), Latin Extended-A, apostrophes, hyphens
+						/^[a-zA-Z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF\u0100-\u017F\s'''`-]+$/,
 						'Nom de ville invalide - utilisez uniquement des lettres, séparez les villes par des virgules',
 					),
 			)

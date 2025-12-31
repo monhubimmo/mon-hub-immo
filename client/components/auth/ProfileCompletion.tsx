@@ -68,7 +68,11 @@ const buildProfessionalInfoPayload = (data: ProfileCompletionFormData) => ({
 });
 
 // Regex for valid city names (letters, accents, spaces, apostrophes, hyphens)
-const CITY_NAME_REGEX = /^[a-zA-ZÀ-ÿ\u0100-\u017F\s'-]+$/;
+// Includes: a-z, A-Z, accented letters (À-Ö, Ø-ö, ø-ÿ), Latin Extended-A (Ā-ſ including œŒ)
+// Excludes: × (multiplication) and ÷ (division)
+// Apostrophes: ' (U+0027), ' (U+2018), ' (U+2019), ` (U+0060)
+const CITY_NAME_REGEX =
+	/^[a-zA-Z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF\u0100-\u017F\s'''`-]+$/;
 
 // Validation helper
 const validateFormData = (

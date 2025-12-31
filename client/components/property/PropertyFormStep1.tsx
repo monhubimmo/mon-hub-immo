@@ -83,7 +83,7 @@ export const PropertyFormStep1: React.FC<PropertyFormStep1Props> = ({
 			/>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<NumberInput
-					label="Prix de vente"
+					label="Prix net vendeur"
 					value={formData.price}
 					onChange={(value) => handleInputChange('price', value || 0)}
 					name="price"
@@ -172,7 +172,7 @@ export const PropertyFormStep1: React.FC<PropertyFormStep1Props> = ({
 									},
 								]
 					}
-					placeholder="Choisissez..."
+					placeholder="Choisissez"
 				/>
 
 				<Select
@@ -186,7 +186,7 @@ export const PropertyFormStep1: React.FC<PropertyFormStep1Props> = ({
 						{ value: 'Vente', label: 'Vente' },
 						{ value: 'Location', label: 'Location' },
 					]}
-					placeholder="Choisissez..."
+					placeholder="Choisissez"
 					required
 				/>
 			</div>{' '}
@@ -312,7 +312,7 @@ export const PropertyFormStep1: React.FC<PropertyFormStep1Props> = ({
 													},
 												]
 						}
-						placeholder="Choisissez..."
+						placeholder="Choisissez"
 					/>
 				)}
 			</div>
@@ -384,7 +384,7 @@ export const PropertyFormStep1: React.FC<PropertyFormStep1Props> = ({
 						💰 Frais d&apos;agence
 					</h4>
 					<p className="text-sm text-gray-600 mb-4">
-						Le prix saisi ci-dessus correspond au{' '}
+						Le prix saisi ci-dessous correspond au{' '}
 						<strong>prix net vendeur</strong>. Renseignez les
 						honoraires et le prix FAI manuellement.
 					</p>
