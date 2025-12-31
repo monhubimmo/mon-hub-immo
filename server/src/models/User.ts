@@ -91,6 +91,9 @@ export interface IUser extends Document {
 	lastInvoiceId?: string;
 	failedPaymentCount?: number;
 	lastFailedPaymentDate?: Date;
+	// Expiry reminder tracking
+	lastExpiryReminderDays?: number;
+	lastExpiryReminderSentAt?: Date;
 	canceledAt?: Date;
 	cancellationReason?: string;
 	isValidated: boolean; // Ajout admin
@@ -461,6 +464,15 @@ const userSchema = new Schema<IUser>(
 			default: 0,
 		},
 		lastFailedPaymentDate: {
+			type: Date,
+			default: null,
+		},
+		// Expiry reminder tracking (to avoid duplicate emails)
+		lastExpiryReminderDays: {
+			type: Number,
+			default: null,
+		},
+		lastExpiryReminderSentAt: {
 			type: Date,
 			default: null,
 		},

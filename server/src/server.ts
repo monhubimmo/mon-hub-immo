@@ -30,6 +30,7 @@ import { errorHandler } from './middleware/errorHandler';
 import { generalLimiter } from './middleware/rateLimiter';
 import adminRouter from './routes/admin';
 import adminChatRoutes from './routes/adminChat';
+import { initSubscriptionReminderScheduler } from './schedulers/subscriptionReminder';
 
 dotenv.config();
 
@@ -327,6 +328,9 @@ const startServer = async () => {
 			logger.info(`🚀 Server is running on port ${PORT}`);
 			logger.info(`📊 Health check: http://localhost:${PORT}/api/health`);
 			logger.info(`🔌 Socket.IO: http://localhost:${PORT}/socket.io/`);
+
+			// Initialize subscription reminder scheduler (runs daily)
+			initSubscriptionReminderScheduler();
 		});
 	} catch (error) {
 		logger.error('❌ Failed to start server:', error);

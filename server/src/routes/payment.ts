@@ -6,7 +6,7 @@ import { User } from '../models/User';
 import { logger } from '../utils/logger';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-	apiVersion: '2025-11-17.clover',
+	apiVersion: '2025-12-15.clover',
 });
 
 const router = Router();
@@ -413,17 +413,21 @@ router.get(
 								subscription.status,
 							);
 
-							// Calculate dates safely
-							const startDate = subscription.current_period_start
-								? new Date(
-										subscription.current_period_start *
-											1000,
-									)
+							// Calculate dates safely - check items.data[0] for newer API versions
+							const startTimestamp =
+								subscription.current_period_start ||
+								subscription.items?.data?.[0]
+									?.current_period_start;
+							const endTimestamp =
+								subscription.current_period_end ||
+								subscription.items?.data?.[0]
+									?.current_period_end;
+
+							const startDate = startTimestamp
+								? new Date(startTimestamp * 1000)
 								: undefined;
-							const endDate = subscription.current_period_end
-								? new Date(
-										subscription.current_period_end * 1000,
-									)
+							const endDate = endTimestamp
+								? new Date(endTimestamp * 1000)
 								: undefined;
 
 							// Determine plan type from subscription price ID
