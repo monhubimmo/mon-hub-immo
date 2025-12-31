@@ -155,6 +155,7 @@ router.post(
 			const portalSession = await stripe.billingPortal.sessions.create({
 				customer: user.stripeCustomerId,
 				return_url: `${process.env.FRONTEND_URL}/dashboard`,
+				locale: 'fr',
 			});
 
 			logger.info(`[Payment] Portal session created for user ${userId}`);

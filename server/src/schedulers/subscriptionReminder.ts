@@ -78,6 +78,7 @@ export const checkSubscriptionExpiry = async (): Promise<void> => {
 								await stripe.billingPortal.sessions.create({
 									customer: user.stripeCustomerId,
 									return_url: `${process.env.FRONTEND_URL}/dashboard`,
+									locale: 'fr',
 								});
 							billingUrl = portalSession.url;
 						} catch {
